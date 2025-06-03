@@ -1,8 +1,35 @@
 {
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index.js"
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.{jpg,png,gif,ico,svg}",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.{md,pdf}",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
+    },
+    {
+      "src": "/(.*\\.(html|jpg|png|gif|ico|svg|md|pdf))$",
+      "dest": "/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/个人简历网页.html"
     }
   ]
 }
