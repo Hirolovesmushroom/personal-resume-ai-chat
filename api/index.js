@@ -189,7 +189,7 @@ app.post('/api/chat', async (req, res) => {
         console.log('AI回复:', aiResponse.substring(0, 100) + '...');
         
         res.json({ 
-            response: aiResponse,
+            reply: aiResponse,
             timestamp: new Date().toISOString(),
             model: API_CONFIG.model
         });
