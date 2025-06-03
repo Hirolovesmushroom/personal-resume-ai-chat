@@ -97,7 +97,7 @@ npm run dev
 3. **逐个添加变量**
    ```
    Name: VOLC_API_KEY
-   Value: 11b2d5fe-bb59-4c91-9a22-1908e67d293b
+   Value: 请填入你的火山方舟API密钥
    Environment: Production, Preview, Development
    ```
    
