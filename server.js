@@ -264,21 +264,26 @@ app.use((req, res) => {
     res.status(404).json({ error: '接口不存在' });
 });
 
-// 启动服务器
-app.listen(PORT, () => {
-    console.log(`🚀 服务器已启动`);
-    console.log(`📱 本地访问: http://localhost:${PORT}`);
-    console.log(`🤖 AI对话功能已就绪`);
-    console.log(`⚡ API健康检查: http://localhost:${PORT}/api/health`);
-});
+// 本地开发时启动服务器
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`🚀 服务器已启动`);
+        console.log(`📱 本地访问: http://localhost:${PORT}`);
+        console.log(`🤖 AI对话功能已就绪`);
+        console.log(`⚡ API健康检查: http://localhost:${PORT}/api/health`);
+    });
 
-// 优雅关闭
-process.on('SIGTERM', () => {
-    console.log('收到SIGTERM信号，正在关闭服务器...');
-    process.exit(0);
-});
+    // 优雅关闭
+    process.on('SIGTERM', () => {
+        console.log('收到SIGTERM信号，正在关闭服务器...');
+        process.exit(0);
+    });
 
-process.on('SIGINT', () => {
-    console.log('收到SIGINT信号，正在关闭服务器...');
-    process.exit(0);
-});
+    process.on('SIGINT', () => {
+        console.log('收到SIGINT信号，正在关闭服务器...');
+        process.exit(0);
+    });
+}
+
+// 导出app实例供Vercel使用
+module.exports = app;
