@@ -249,8 +249,17 @@ app.post('/api/chat', async (req, res) => {
 });
 
 // 提供静态文件服务
+app.use(express.static(__dirname));
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '个人简历网页.html'));
+    const htmlPath = path.join(__dirname, '个人简历网页.html');
+    console.log('尝试发送文件:', htmlPath);
+    res.sendFile(htmlPath, (err) => {
+        if (err) {
+            console.error('发送文件失败:', err);
+            res.status(500).send('页面加载失败');
+        }
+    });
 });
 
 // 错误处理中间件
