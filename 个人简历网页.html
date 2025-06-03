@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈建宏 - 个人简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* 毛玻璃背景效果 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .resume-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 1px 0px rgba(255, 255, 255, 0.5) inset;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .resume-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 16px 48px rgba(0, 0, 0, 0.15),
+                0 1px 0px rgba(255, 255, 255, 0.5) inset;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1d1d1f 0%, #2d2d30 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 24px auto;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 3.2em;
+            margin-bottom: 16px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .title {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .sidebar {
+            background: rgba(248, 249, 250, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        .content {
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #1d1d1f;
+            font-size: 1.75em;
+            font-weight: 600;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            letter-spacing: -0.01em;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #007AFF 0%, #5856D6 100%);
+            border-radius: 1px;
+        }
+
+        .job {
+            margin-bottom: 32px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .job:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .company {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .duration {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            background: #ecf0f1;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+
+        .job-description {
+            margin-top: 10px;
+        }
+
+        .job-description h4 {
+            color: #34495e;
+            margin: 15px 0 10px 0;
+            font-size: 1.1em;
+        }
+
+        .achievements {
+            list-style: none;
+            margin: 10px 0;
+        }
+
+        .achievements li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin: 8px 0;
+            padding: 5px 10px;
+            background: #ecf0f1;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .education {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .articles-section {
+            background: rgba(248, 249, 250, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 32px;
+            border-radius: 20px;
+            margin-top: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        .article-item {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 24px;
+            margin: 16px 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .article-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-title {
+            color: #2c3e50;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .article-summary {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .article-link {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .article-link:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .job-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="resume-card">
+            <div class="header">
+                <img src="照片.jpg" alt="陈建宏" class="profile-photo">
+                <h1>陈建宏</h1>
+                <div class="title">产品副总监 | AI应用专家 | 产品分析师</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>邮箱联系</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>手机联系</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🌐</span>
+                        <span>woshipm.com/u/775010</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="sidebar">
+                    <div class="section">
+                        <h2>核心技能</h2>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h3>AI应用技能</h3>
+                                <ul class="skill-list">
+                                    <li>Prompt工程</li>
+                                    <li>知识库搭建</li>
+                                    <li>Agent开发</li>
+                                    <li>MCP协议</li>
+                                    <li>AI编程</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h3>产品技能</h3>
+                                <ul class="skill-list">
+                                    <li>Axure原型设计</li>
+                                    <li>Visio流程图</li>
+                                    <li>Xmind思维导图</li>
+                                    <li>Office办公套件</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h3>资质证书</h3>
+                                <ul class="skill-list">
+                                    <li>基金从业资格</li>
+                                    <li>证券从业资格</li>
+                                    <li>英语CET-6</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>教育背景</h2>
+                        <div class="education">
+                            <h3>上海交通大学</h3>
+                            <p><strong>新能源科学与工程 本科</strong></p>
+                            <p>2013.09 - 2017.07</p>
+                            <div class="highlight">
+                                <p>学积分：85.03</p>
+                                <p>专业排名：57/291</p>
+                                <p>校二等奖学金、学生会优秀干事</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>关键成就</h2>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-number">4W亿</div>
+                                <div class="stat-label">交易规模</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">300W</div>
+                                <div class="stat-label">APP下载量</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">100W+</div>
+                                <div class="stat-label">文章阅读量</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="section">
+                        <h2>工作经历</h2>
+                        
+                        <div class="job">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">产品副总监</div>
+                                    <div class="company">上海基煜基金销售有限公司</div>
+                                </div>
+                                <div class="duration">2020.4 - 至今</div>
+                            </div>
+                            
+                            <h4>AI创新部（2025.3 - 至今）</h4>
+                            <div class="highlight">
+                                <strong>核心指标：</strong>企业级AI应用落地率、日常办公AI覆盖率超50%
+                            </div>
+                            <ul class="achievements">
+                                <li>牵头AI投研项目孵化，推动投研服务数字化智能化转型</li>
+                                <li>推动ChatBI应用落地，实现企业取数用数场景智能化</li>
+                                <li>组建30人AI创新小组，构建"技能培训-场景挖掘-实操落地"创新体系</li>
+                            </ul>
+
+                            <h4>创新业务部（2023.12 - 2025.3）</h4>
+                            <ul class="achievements">
+                                <li>带领6人产品运营团队孵化创新业务</li>
+                                <li>主导全品类交易数字化平台搭建，探索服务信托、投顾业务机会</li>
+                            </ul>
+                            
+                            <div class="highlight">
+                                <h4>主要成果：</h4>
+                                <p><strong>资管通：</strong>半年完成20+家机构对接，传输交易6W+笔，规模超4W亿</p>
+                                <p><strong>智能投顾：</strong>半年完成18家投顾机构对接，5亿业务落地；推出自动化KYC+资配方案</p>
+                            </div>
+
+                            <h4>科技中心（2020.4 - 2023.12）</h4>
+                            <ul class="achievements">
+                                <li>核心交易平台"基构通"产品负责人（对接15人研发团队）</li>
+                                <li>设计账户中心、交易中心、权限体系及投后服务体系</li>
+                                <li><strong>智能开户：</strong>OCR+AI模型识别材料，开户时间从20分钟缩至3分钟</li>
+                                <li><strong>极速下单：</strong>规则引擎自动解析指令模板，效率提升100+倍</li>
+                                <li><strong>智能报表：</strong>基于BI底座打造配置化报表，需求响应从1周缩至1天</li>
+                            </ul>
+                        </div>
+
+                        <div class="job">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">产品经理兼运营总监</div>
+                                    <div class="company">上海婀娜信息科技有限公司</div>
+                                </div>
+                                <div class="duration">2015.10 - 2020.03</div>
+                            </div>
+                            <ul class="achievements">
+                                <li>团队早期合伙人，负责百万级社交产品研发运营</li>
+                                <li>项目经验：APP/小程序/H5等多端开发</li>
+                            </ul>
+                            
+                            <div class="highlight">
+                                <h4>核心产品：</h4>
+                                <p><strong>恋爱圈：</strong>婚恋交友APP（下载量300W，日活2W，月活10W）</p>
+                                <p><strong>Simplr：</strong>校园社交APP（30W实名大学生认证）</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>其他经历</h2>
+                        <div class="job">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">科技自媒体</div>
+                                    <div class="company">公众号：宏观互联网</div>
+                                </div>
+                                <div class="duration">2018.09 - 2019.11</div>
+                            </div>
+                            <ul class="achievements">
+                                <li>给腾讯、36氪、新浪专栏等平台供稿</li>
+                                <li>单篇《中国社交二十年》全网阅读量超百万</li>
+                                <li>人人都是产品经理主页：woshipm.com/u/775010</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resume-card articles-section">
+            <h2>产品分析文章作品集</h2>
+            <p style="color: #7f8c8d; margin-bottom: 20px;">以下是我在产品分析领域的代表性作品，展现了对社交产品、用户行为、商业模式等方面的深度思考。</p>
+            
+            <div class="article-item">
+                <div class="article-title">三英战微信？王思聪：都是垃圾……</div>
+                <div class="article-summary">
+                    深度分析2019年初三款挑战微信的社交产品（马桶MT、聊天宝、多闪）的失败案例。从产品定位、用户需求、技术实现等多个维度剖析产品问题，探讨关系链作为社交产品护城河的重要性。
+                </div>
+                <a href="https://www.woshipm.com/it/1874516.html" class="article-link" target="_blank">查看原文 →</a>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">罗永浩：赚钱快如子弹？</div>
+                <div class="article-summary">
+                    专门分析子弹短信转型为聊天宝的产品策略和商业逻辑，深度解读罗永浩在社交领域的探索历程。重点分析产品定位混乱、用户群体错配、商业化时机等关键问题。
+                </div>
+                <a href="https://www.woshipm.com/it/1849723.html" class="article-link" target="_blank">查看原文 →</a>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">微信的改变，张小龙的情怀</div>
+                <div class="article-summary">
+                    深度解读微信7.0版本更新，特别是"看一看"和"时刻视频"功能的产品哲学和战略意图。分析微信基于关系链分发与今日头条算法分发的不同路径，探讨产品克制哲学。
+                </div>
+                <a href="https://www.woshipm.com/it/1768745.html" class="article-link" target="_blank">查看原文 →</a>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">霸榜一周的ZEPETO，根本不是社交软件！</div>
+                <div class="article-summary">
+                    对当时火爆的3D虚拟形象应用ZEPETO进行犀利的产品分析，质疑其社交属性的真实性。论证ZEPETO本质上是"游戏+工具"而非社交产品，提出社交产品需要"高频且持续"的使用需求。
+                </div>
+                <a href="https://www.woshipm.com/it/1710036.html" class="article-link" target="_blank">查看原文 →</a>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">我给子弹短信判"死刑"的三个理由</div>
+                <div class="article-summary">
+                    从时间、功能、团队三个维度系统性分析子弹短信失败的根本原因。提出社交产品成功需要"平台颠覆"或"代际跨越"的时机，论证突破关系链壁垒需要十倍体验优化。
+                </div>
+                <a href="https://www.woshipm.com/it/1642399.html" class="article-link" target="_blank">查看原文 →</a>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">中国社交二十年</div>
+                <div class="article-summary">
+                    全景式回顾中国社交产品从BBS时代到移动互联网时代的发展历程，梳理社交产品的演进脉络。详细分析QQ、微信等里程碑产品的成功要素，提炼社交产品发展的内在逻辑。
+                </div>
+                <a href="https://www.woshipm.com/it/1583552.html" class="article-link" target="_blank">查看原文 →</a>
+            </div>
+
+            <div class="highlight">
+                <h3>作品特色总结</h3>
+                <ul class="achievements">
+                    <li><strong>分析深度：</strong>深入探讨产品背后的商业逻辑、用户心理和行业规律</li>
+                    <li><strong>视角独特：</strong>敢于提出与主流观点不同的见解，具备独立思考能力</li>
+                    <li><strong>框架思维：</strong>具备系统性分析框架，多维度综合分析产品</li>
+                    <li><strong>前瞻性：</strong>多篇文章预判后来得到验证，体现产品嗅觉和判断力</li>
+                    <li><strong>行业洞察：</strong>对社交、内容、工具等不同类型产品都有深入理解</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI对话模块 - 悬浮设计 -->
+        <div class="ai-chat-container minimized">
+            <h3>🤖 AI分身</h3>
+            
+            <div class="chat-content">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message ai-message">
+                            <div class="message-content">
+                                <strong>AI陈建宏：</strong>您好！我是陈建宏的AI分身，很高兴与您对话。您可以问我关于工作经历、技术能力、产品思维或者任何想了解的问题。
+                            </div>
+                            <div class="message-time">刚刚</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <div class="input-group">
+                            <input type="text" id="chatInput" placeholder="输入您想问的问题..." maxlength="500">
+                            <button id="sendButton" onclick="sendMessage()">发送</button>
+                        </div>
+                        <div class="chat-status" id="chatStatus"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 下载简历悬浮按钮 -->
+        <div class="download-resume-btn" onclick="downloadResume()">
+            <div class="download-icon">📄</div>
+            <div class="download-text">下载简历</div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 陈建宏个人简历 | 专注AI应用与产品创新</p>
+        </div>
+    </div>
+
+    <script>
+        // AI对话功能
+        let isLoading = false;
+        
+        // 发送消息函数
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message || isLoading) return;
+            
+            // 添加用户消息
+            addMessage(message, 'user');
+            input.value = '';
+            
+            // 设置加载状态
+            setLoading(true);
+            
+            try {
+                // 调用后端API
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message }),
+                    timeout: 60000
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                // 添加AI回复
+                addMessage(data.reply, 'ai');
+                
+            } catch (error) {
+                console.error('Error:', error);
+                addMessage('抱歉，我现在无法回答您的问题。请稍后再试，或者您可以直接查看我的简历了解更多信息。', 'ai', true);
+            } finally {
+                setLoading(false);
+            }
+        }
+        
+        // 添加消息到聊天界面
+        function addMessage(content, type, isError = false) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}-message${isError ? ' error-message' : ''}`;
+            
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+            
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <strong>${type === 'user' ? '您' : 'AI陈建宏'}：</strong>${content}
+                </div>
+                <div class="message-time">${timeStr}</div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        // 设置加载状态
+        function setLoading(loading) {
+            isLoading = loading;
+            const sendButton = document.getElementById('sendButton');
+            const chatStatus = document.getElementById('chatStatus');
+            const chatInput = document.getElementById('chatInput');
+            
+            if (loading) {
+                sendButton.textContent = '发送中...';
+                sendButton.disabled = true;
+                chatInput.disabled = true;
+                chatStatus.textContent = 'AI正在思考中...';
+                chatStatus.style.display = 'block';
+            } else {
+                sendButton.textContent = '发送';
+                sendButton.disabled = false;
+                chatInput.disabled = false;
+                chatStatus.style.display = 'none';
+            }
+        }
+        
+        // 回车发送消息
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !isLoading) {
+                sendMessage();
+            }
+        });
+        
+        // 页面加载完成后的初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查后端服务是否可用
+            fetch('/api/health')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Backend not available');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Backend service is available');
+                })
+                .catch(error => {
+                    console.warn('Backend service not available:', error);
+                    document.getElementById('chatStatus').innerHTML = 
+                        '<span style="color: #e74c3c;">⚠️ AI对话服务暂时不可用，请启动后端服务</span>';
+                    document.getElementById('chatStatus').style.display = 'block';
+                });
+            
+            // 添加AI对话框折叠功能
+            const chatContainer = document.querySelector('.ai-chat-container');
+            const chatTitle = chatContainer.querySelector('h3');
+            
+            if (chatTitle) {
+                chatTitle.addEventListener('click', function() {
+                    chatContainer.classList.toggle('minimized');
+                });
+            }
+        });
+        
+        // 下载简历函数
+        function downloadResume() {
+            // 创建一个临时的a标签来触发下载
+            const link = document.createElement('a');
+            link.href = '简历 陈建宏 2025(2).pdf';
+            link.download = '陈建宏_个人简历.pdf';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+    
+    <style>
+        /* AI对话模块样式 - 悬浮在顶部 */
+        .ai-chat-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 400px;
+            max-width: calc(100vw - 40px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 
+                0 16px 48px rgba(0, 0, 0, 0.15),
+                0 1px 0px rgba(255, 255, 255, 0.8) inset;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+        }
+
+        .ai-chat-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 20px 56px rgba(0, 0, 0, 0.2),
+                0 1px 0px rgba(255, 255, 255, 0.8) inset;
+        }
+
+        /* 可折叠功能 - 优化动画效果 */
+        .ai-chat-container {
+            max-height: 500px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .ai-chat-container.minimized {
+            max-height: 80px;
+        }
+
+        .ai-chat-container .chat-content {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .ai-chat-container.minimized .chat-content {
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+        }
+
+        .ai-chat-container h3 {
+            color: #1d1d1f;
+            margin-bottom: 16px;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            letter-spacing: -0.01em;
+            position: relative;
+            padding: 8px 0;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ai-chat-container h3:hover {
+            color: #007AFF;
+            background: rgba(0, 122, 255, 0.05);
+        }
+
+        .ai-chat-container h3::after {
+            content: '▼';
+            font-size: 0.8em;
+            font-weight: 400;
+            color: #007AFF;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: rotate(0deg);
+        }
+
+        .ai-chat-container.minimized h3::after {
+            content: '▼';
+            transform: rotate(-90deg);
+        }
+
+        .chat-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .chat-messages {
+            height: 280px;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            background: rgba(248, 249, 250, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .message {
+            margin-bottom: 12px;
+            padding: 12px 16px;
+            border-radius: 18px;
+            max-width: 85%;
+            font-size: 0.9em;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+        
+        .user-message {
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            color: white;
+            margin-left: auto;
+            text-align: right;
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+        }
+        
+        .ai-message {
+            background: rgba(255, 255, 255, 0.9);
+            color: #1d1d1f;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-right: auto;
+        }
+        
+        .error-message {
+            background: #ffebee !important;
+            color: #c62828 !important;
+        }
+        
+        .message-content {
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        .message-time {
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+        
+        .chat-input-container {
+            position: relative;
+        }
+        
+        .input-group {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        #chatInput {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            font-size: 14px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        #chatInput:focus {
+            border-color: #007AFF;
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        #chatInput:disabled {
+            background-color: #f8f9fa;
+            cursor: not-allowed;
+        }
+        
+        #sendButton {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+            min-width: 80px;
+        }
+        
+        #sendButton:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 122, 255, 0.4);
+        }
+        
+        #sendButton:disabled {
+            background: linear-gradient(135deg, #8E8E93 0%, #AEAEB2 100%);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chat-status {
+            margin-top: 12px;
+            padding: 8px 15px;
+            background: #fff3cd;
+            color: #856404;
+            border-radius: 8px;
+            font-size: 0.85em;
+            display: none;
+        }
+        
+        /* 滚动条样式 */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+        
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .ai-chat-container {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                width: auto;
+                max-width: none;
+                padding: 20px;
+            }
+            
+            .chat-messages {
+                height: 200px;
+            }
+            
+            .message {
+                max-width: 90%;
+                padding: 10px 12px;
+            }
+            
+            .input-group {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            #chatInput {
+                width: 100%;
+            }
+            
+            #sendButton {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ai-chat-container {
+                top: 5px;
+                right: 5px;
+                left: 5px;
+                padding: 16px;
+            }
+            
+            .chat-messages {
+                height: 180px;
+            }
+        }
+
+        /* 下载简历悬浮按钮样式 */
+        .download-resume-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            color: white;
+            text-align: center;
+        }
+
+        .download-resume-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .download-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+
+        .download-text {
+            font-size: 8px;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .download-resume-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .download-icon {
+                font-size: 16px;
+            }
+            
+            .download-text {
+                font-size: 7px;
+            }
+        }
+    </style>
+</body>
+</html>
