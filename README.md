@@ -36,13 +36,18 @@ npm install
 cp .env.example .env
 ```
 
-编辑 `.env` 文件：
+编辑 `.env` 文件，填入你的实际配置：
 ```env
-VOLC_API_KEY=your_actual_api_key_here
+VOLC_API_KEY=请填入你的火山方舟API密钥
 VOLC_API_URL=https://ark.cn-beijing.volces.com/api/v3/chat/completions
 VOLC_MODEL=deepseek-r1-250120
 API_TIMEOUT=60000
 ```
+
+⚠️ **安全提醒**：
+- 请确保 `.env` 文件已添加到 `.gitignore` 中，避免密钥泄露
+- 不要在任何公开场所分享你的API密钥
+- 定期更换API密钥以确保安全
 
 ### 4. 启动开发服务器
 ```bash
